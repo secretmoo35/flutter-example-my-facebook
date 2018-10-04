@@ -11,31 +11,43 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.grey[300],
           appBar: AppBar(
-            leading: FlatButton(
-              onPressed: () {},
-              child: Icon(
-                Icons.camera_alt,
-                color: Colors.white,
+            leading: ButtonTheme(
+              minWidth: 5.0,
+              child: FlatButton(
+                onPressed: () {},
+                child: Icon(
+                  Icons.camera_alt,
+                  color: Colors.white,
+                ),
               ),
             ),
             actions: <Widget>[
-              FlatButton(
-                onPressed: () {},
-                child: Icon(
-                  Icons.chat_bubble,
-                  color: Colors.white,
+              ButtonTheme(
+                minWidth: 5.0,
+                child: FlatButton(
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.chat,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
             title: Container(
+              padding: EdgeInsets.only(left: 5.0),
+              decoration: BoxDecoration(
+                color: Colors.indigo[900],
+                borderRadius: new BorderRadius.circular(16.0),
+              ),
               child: TextField(
                 decoration: InputDecoration(
-                    icon: Icon(Icons.search, color: Colors.white30),
-                    hintStyle: const TextStyle(
-                      color: Colors.white30,
-                    ),
-                    border: InputBorder.none,
-                    hintText: 'Search'),
+                  border: InputBorder.none,
+                  hintText: 'Search...',
+                  icon: Icon(Icons.search, color: Colors.white70),
+                  hintStyle: const TextStyle(
+                    color: Colors.white70,
+                  ),
+                ),
               ),
             ),
           ),
