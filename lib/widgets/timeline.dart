@@ -67,191 +67,189 @@ class _TimelineState extends State<Timeline> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        itemCount: timelineList.length,
-        itemBuilder: (context, index) {
-          var data = this.timelineList[index];
+    List<Widget> containers = new List<Widget>();
 
-          var imageWidget;
+    for (var post in timelineList) {
+      var imageWidget;
 
-          if (data.image.length > 0) {
-            imageWidget = Container(
-              margin: EdgeInsets.only(top: 12.0),
-              width: MediaQuery.of(context).size.width - 20,
-              child: Image.network(data.image),
-            );
-          } else {
-            imageWidget = Container();
-          }
+      if (post.image.length > 0) {
+        imageWidget = Container(
+          margin: EdgeInsets.only(top: 12.0),
+          width: MediaQuery.of(context).size.width - 20,
+          child: Image.network(post.image),
+        );
+      } else {
+        imageWidget = Container();
+      }
 
-          return Container(
-            margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 6.0),
-            padding: EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 0.0),
-            color: Colors.white,
-            child: Column(
+      var container = Container(
+        margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 6.0),
+        padding: EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 0.0),
+        color: Colors.white,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      child: Row(
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Column(
                         children: <Widget>[
-                          Column(
+                          Container(
+                            height: 48.0,
+                            width: 48.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(post.profileImage),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
                             children: <Widget>[
-                              Container(
-                                height: 48.0,
-                                width: 48.0,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(data.profileImage),
-                                  ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  post.username,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey[800]),
                                 ),
                               ),
                             ],
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      data.username,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey[800]),
+                              Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Text(post.posttime),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          6.0, 0.0, 0.0, 0.0),
+                                      child: Icon(
+                                        Icons.public,
+                                        size: 14.0,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(data.posttime),
-                                        Padding(
-                                          padding: EdgeInsets.fromLTRB(
-                                              6.0, 0.0, 0.0, 0.0),
-                                          child: Icon(
-                                            Icons.public,
-                                            size: 14.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
-                          )
+                          ),
                         ],
-                      ),
-                    ),
-                    ButtonTheme(
-                      minWidth: 0.0,
-                      height: 0.0,
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.more_horiz,
-                        ),
-                      ),
-                    ),
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-                Row(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width - 20,
-                      padding: EdgeInsets.fromLTRB(6.0, 8.0, 6.0, 0.0),
-                      child: Text(
-                        data.content,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 4,
-                      ),
+                ButtonTheme(
+                  minWidth: 0.0,
+                  height: 0.0,
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.more_horiz,
                     ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[imageWidget],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    FlatButton(
-                      onPressed: () {},
-                      color: Colors.white,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.thumb_up,
-                            color: Colors.grey[700],
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Like',
-                              style: TextStyle(color: Colors.grey[700]),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    FlatButton(
-                      onPressed: () {},
-                      color: Colors.white,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.message,
-                            color: Colors.grey[700],
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Comment',
-                              style: TextStyle(color: Colors.grey[700]),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    FlatButton(
-                      onPressed: () {},
-                      color: Colors.white,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.share,
-                            color: Colors.grey[700],
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Share',
-                              style: TextStyle(color: Colors.grey[700]),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+                  ),
                 ),
               ],
             ),
-          );
-        },
-      ),
+            Row(
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width - 20,
+                  padding: EdgeInsets.fromLTRB(6.0, 8.0, 6.0, 0.0),
+                  child: Text(
+                    post.content,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 4,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[imageWidget],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.thumb_up,
+                        color: Colors.grey[700],
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Like',
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.message,
+                        color: Colors.grey[700],
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Comment',
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.share,
+                        color: Colors.grey[700],
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Share',
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      );
+      containers.add(container);
+    }
+
+    return Column(
+      children: containers
     );
   }
 }
