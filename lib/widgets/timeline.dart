@@ -75,7 +75,7 @@ class _TimelineState extends State<Timeline> {
       if (post.image.length > 0) {
         imageWidget = Container(
           margin: EdgeInsets.only(top: 12.0),
-          width: MediaQuery.of(context).size.width - 20,
+          width: MediaQuery.of(context).size.width,
           child: Image.network(post.image),
         );
       } else {
@@ -84,7 +84,7 @@ class _TimelineState extends State<Timeline> {
 
       var container = Container(
         margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 6.0),
-        padding: EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 0.0),
+        // padding: EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 0.0),
         color: Colors.white,
         child: Column(
           children: [
@@ -92,6 +92,7 @@ class _TimelineState extends State<Timeline> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
+                  padding: EdgeInsets.all(12.0),
                   child: Row(
                     children: <Widget>[
                       Column(
@@ -168,7 +169,7 @@ class _TimelineState extends State<Timeline> {
               children: <Widget>[
                 Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  padding: EdgeInsets.fromLTRB(6.0, 8.0, 6.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(14.0, 8.0, 6.0, 0.0),
                   child: Text(
                     post.content,
                     overflow: TextOverflow.ellipsis,
@@ -179,6 +180,26 @@ class _TimelineState extends State<Timeline> {
             ),
             Row(
               children: <Widget>[imageWidget],
+            ),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 16.0, top: 8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.thumb_up,
+                        color: Colors.blue,
+                        size: 14.0,
+                      ),
+                      Text(
+                        post.likes,
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -248,8 +269,6 @@ class _TimelineState extends State<Timeline> {
       containers.add(container);
     }
 
-    return Column(
-      children: containers
-    );
+    return Column(children: containers);
   }
 }
