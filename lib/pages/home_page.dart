@@ -11,7 +11,33 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.grey[300],
           appBar: AppBar(
-            title: Text('Feed'),
+            leading: FlatButton(
+              onPressed: () {},
+              child: Icon(
+                Icons.camera_alt,
+                color: Colors.white,
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {},
+                child: Icon(
+                  Icons.chat_bubble,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+            title: Container(
+              child: TextField(
+                decoration: InputDecoration(
+                    icon: Icon(Icons.search, color: Colors.white30),
+                    hintStyle: const TextStyle(
+                      color: Colors.white30,
+                    ),
+                    border: InputBorder.none,
+                    hintText: 'Search'),
+              ),
+            ),
           ),
           body: TabBarView(
             children: <Widget>[
