@@ -9,88 +9,90 @@ class HomePage extends StatelessWidget {
     return DefaultTabController(
       length: 6,
       child: Scaffold(
-        backgroundColor: Colors.grey[300],
-        appBar: AppBar(
-          title: Text('Feed'),
-        ),
-        body: TabBarView(
-          children: <Widget>[
-            Container(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    NewPost(),
-                    StoryBox(),
-                    Timeline(),
-                  ],
+          backgroundColor: Colors.grey[300],
+          appBar: AppBar(
+            title: Text('Feed'),
+          ),
+          body: TabBarView(
+            children: <Widget>[
+              Container(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      NewPost(),
+                      StoryBox(),
+                      Timeline(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Container(
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Text('friend'),
+              Container(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Text('friend'),
+                  ),
                 ),
               ),
-            ),
-            Container(
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Text('video'),
+              Container(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Text('video'),
+                  ),
                 ),
               ),
-            ),
-            Container(
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Text('marketplace'),
+              Container(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Text('marketplace'),
+                  ),
                 ),
               ),
-            ),
-            Container(
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Text('notification'),
+              Container(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Text('notification'),
+                  ),
                 ),
               ),
-            ),
-            Container(
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Text('setting'),
+              Container(
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Text('setting'),
+                  ),
                 ),
               ),
+            ],
+          ),
+          bottomNavigationBar: Container(
+            color: Colors.white,
+            child: TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.satellite),
+                ),
+                Tab(
+                  icon: Icon(Icons.people_outline),
+                ),
+                Tab(
+                  icon: Icon(Icons.play_circle_outline),
+                ),
+                Tab(
+                  icon: Icon(Icons.add_shopping_cart),
+                ),
+                Tab(
+                  icon: Icon(Icons.notifications_none),
+                ),
+                Tab(
+                  icon: Icon(Icons.menu),
+                )
+              ],
+              labelColor: Colors.indigo,
+              unselectedLabelColor: Colors.grey,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorPadding: EdgeInsets.all(0.0),
+              indicatorColor: Colors.indigo,
             ),
-          ],
-        ),
-        bottomNavigationBar: new TabBar(
-          tabs: [
-            Tab(
-              icon: new Icon(Icons.satellite),
-            ),
-            Tab(
-              icon: new Icon(Icons.people_outline),
-            ),
-            Tab(
-              icon: new Icon(Icons.play_circle_outline),
-            ),
-            Tab(
-              icon: new Icon(Icons.add_shopping_cart),
-            ),
-            Tab(
-              icon: new Icon(Icons.notifications_none),
-            ),
-            Tab(
-              icon: new Icon(Icons.menu),
-            )
-          ],
-          labelColor: Colors.indigo,
-          unselectedLabelColor: Colors.grey,
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorPadding: EdgeInsets.all(0.0),
-          indicatorColor: Colors.indigo,
-        ),
-      ),
+          )),
     );
   }
 }
