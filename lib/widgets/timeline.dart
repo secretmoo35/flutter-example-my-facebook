@@ -182,6 +182,7 @@ class _TimelineState extends State<Timeline> {
               children: <Widget>[imageWidget],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(left: 16.0, top: 8.0),
@@ -192,11 +193,21 @@ class _TimelineState extends State<Timeline> {
                         color: Colors.blue,
                         size: 14.0,
                       ),
-                      Text(
-                        post.likes,
-                        style: TextStyle(color: Colors.grey),
-                      )
+                      Container(
+                        margin: EdgeInsets.only(left: 2.0, top: 2.0),
+                        child: Text(
+                          post.likes,
+                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                        ),
+                      ),
                     ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(right: 8.0),
+                  child: Text(
+                    'ความคิดเห็น 59 รายการ แชร์ 10 ครั้ง',
+                    style: TextStyle(color: Colors.grey, fontSize: 12.0),
                   ),
                 )
               ],
@@ -216,7 +227,7 @@ class _TimelineState extends State<Timeline> {
                       Container(
                         padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Like',
+                          'ถูกใจ',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -235,7 +246,7 @@ class _TimelineState extends State<Timeline> {
                       Container(
                         padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Comment',
+                          'แสดงความคิดเห็น',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -254,7 +265,7 @@ class _TimelineState extends State<Timeline> {
                       Container(
                         padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Share',
+                          'แชร์',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),

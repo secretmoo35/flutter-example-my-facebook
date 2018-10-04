@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_facebook/widgets/friend_list.dart';
 import 'package:my_facebook/widgets/new_post.dart';
 import 'package:my_facebook/widgets/story_box.dart';
 import 'package:my_facebook/widgets/timeline.dart';
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Search...',
+                  hintText: 'ค้นหา',
                   icon: Icon(Icons.search, color: Colors.white70),
                   hintStyle: const TextStyle(
                     color: Colors.white70,
@@ -66,8 +67,10 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 child: SingleChildScrollView(
-                  child: Center(
-                    child: Text('friend'),
+                  child: Column(
+                    children: <Widget>[
+                      FriendList()
+                    ],
                   ),
                 ),
               ),

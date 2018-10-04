@@ -66,7 +66,7 @@ class _StoryBoxState extends State<StoryBox> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Stories'.padLeft(10),
+                'เรื่องราว'.padLeft(10),
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.grey[800]),
               ),
@@ -74,9 +74,15 @@ class _StoryBoxState extends State<StoryBox> {
                 onPressed: () {},
                 child: Row(
                   children: <Widget>[
-                    Icon(Icons.play_arrow),
+                    Container(
+                      margin: EdgeInsets.only(top: 4.0, right: 1.0),
+                      child: Icon(
+                        Icons.access_time,
+                        size: 14.0,
+                      ),
+                    ),
                     Text(
-                      'Play All',
+                      'คลังเรื่องราวของคุณ',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],

@@ -34,7 +34,7 @@ class _NewPostState extends State<NewPost> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        'What your minds?',
+                        'คุณกำลังคิดอะไรอยู่',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -81,7 +81,7 @@ class _NewPostState extends State<NewPost> {
                     Container(
                       padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                       child: Text(
-                        'Photo',
+                        'รูปภาพ',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     ),
@@ -100,7 +100,7 @@ class _NewPostState extends State<NewPost> {
                     Container(
                       padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                       child: Text(
-                        'Check-in',
+                        'เช็คอิน',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     ),
