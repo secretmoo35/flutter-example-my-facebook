@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:my_facebook/models/timeline_model.dart';
 
 class Timeline extends StatefulWidget {
   _TimelineState createState() => _TimelineState();
 }
 
 class _TimelineState extends State<Timeline> {
+
+  List<dynamic> timelineList = new List<dynamic>();
+  _TimelineState(){
+    timelineList.add(TimelineModel("Steve Rogers","https://geekyapar.com/wp-content/uploads/2018/02/Cap-Shield-e1518448979864.jpg","2 ชม.","440","จีบตอนเด็กแถมฟรีตอนโต","https://www.thewrap.com/wp-content/uploads/2011/08/cap.jpg"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("Steve Rogers","https://geekyapar.com/wp-content/uploads/2018/02/Cap-Shield-e1518448979864.jpg","3 วันที่แล้ว","44","อิสรภาพมีราคาแพง แต่นั่นก็เป็นราคาที่ผมยอมจ่าย",""));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+    timelineList.add(TimelineModel("username","profileIMG","time","like","content","img"));
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
